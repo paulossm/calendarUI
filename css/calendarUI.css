@@ -1,0 +1,57 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.calendarContainer {
+    display: block;
+    width: 96px !important;
+    margin: 16px auto 0px;
+    border: solid 1px rgb(44,44,44);
+}
+
+.calendarContainer .day {
+    position: relative;
+	font-size: 11pt;
+    padding: 4px;
+    margin: 0;
+    background-color: dodgerblue;
+    border-bottom: solid 2px whitesmoke;
+    color: whitesmoke;
+}
+
+.calendarContainer .day .dayOfWeek {
+    position: absolute;
+    right: 4px;
+}
+
+.calendarContainer .events {
+    margin: 0;
+    padding: 0;
+    background-color: ghostwhite;
+    height: 584px;
+	position: relative;
+}
+
+.calendarContainer .events .event {
+    list-style: none;
+	display: block;
+}
+
+.calendarContainer .hours {
+	position: absolute;
+    top: -5px;
+    left: -80px;
+    display: grid;
+    grid-template-columns: 1fr;
+    text-align: right;
+    height: 584px;
+    align-items: start;
+}
+
+.calendarContainer .hours .hour {
+	font-size: 8pt;
+	color: rgb(100,100,100);
+}

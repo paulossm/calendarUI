@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en-US" ng-app="calendarUI">
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<meta name="description" content="A simple calendar UI developed for skill testing porpuses."/>
+		<meta name="author" content="Paulo Sergio Mendonca, @pssmweb"/>
+		<title>Calendar UI</title>
+        <!-- CSS CALENDAR STYLES -->
+        <link rel="stylesheet" type="text/css" href="css/calendarUI.css"/>
+
+        <!-- JASMINE (Unit Testing) -->
+        <script src="lib/jasmine-2.8.0/jasmine.js"></script>
+        <script src="lib/jasmine-2.8.0/jasmine-html.js"></script>
+  		<script src="lib/jasmine-2.8.0/boot.js"></script>
+
+		<!-- ANGULAR JS (v1.6.4)-->
+		<script src="javascript/angular.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-mocks.js"></script>
+
+
+	</head>	
+
+	<body style="font-family: sans-serif; font-size: 13pt;">
+		<section class="calendarContainer" ng-controller="dayEvents">
+            <h3 class="day">13 <span class="dayOfWeek">Friday</span></h3>
+			<ul class="events"
+				style="display: grid; grid-template-rows: {{grid.fillRows()}}; grid-template-columns: {{grid.fillColumns()}};">
+				<li class="event"
+					ng-repeat="event in events"
+					style="display: block; grid-row-start: {{event.startRow}}; grid-row-end: {{event.endRow}}; background-color: {{event.color}}; grid-column-start: {{event.column}}; grid-column-end: {{(event.spanWidth) ? grid.getMaxColumnNumber()  + 1 : event.column}};">
+				</li>
+				<ul class="hours" style="grid-template-rows: {{dayView.gridrow}}">
+					<li class="hour"
+						ng-repeat="hour in dayView.hours"
+						style="display: block; grid-row: {{hour}};">{{hour.substr(2, (hour.length - 3)).replace("-", ":") + "0"}}</li>
+				</ul>
+			</ul>
+		</section>
+		
+		<script src="javascript/calendarUI.app.js"></script>
+		<script src="javascript/services/Event.js"></script>
+		<script src="javascript/services/CalendarOrganizer.js"></script>
+		<script src="javascript/controllers/calendarUI.js"></script>
+
+		<!-- Spec File -->
+		<script src="spec/CalendarSpec.js"></script>
+	</body>
+</html>
